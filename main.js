@@ -1,5 +1,5 @@
-let diameter = 80;
-let fontSize = 45;
+let diameter = 40;
+let fontSize = 25;
 let MSTEdgeWeight = 10;
 let MSTEdgeColor = 'red';
 let MSTVertexColor = 'blue';
@@ -28,6 +28,8 @@ let selectingVertexB = false;
 let weightInput;
 let buttonSave;
 let buttonImport;
+let buttonImport1;
+let buttonImport2;
 let inputTextArea;
 const graph = new Graph(diameter, fontSize);
 
@@ -97,12 +99,19 @@ function setup() {
 	buttonImport.position(110, lineHeight * line++);
 	buttonImport.mousePressed(importGraph);
 
+	buttonImport = createButton('Import Graph 1');
+	buttonImport.position(110, lineHeight * line++);
+	buttonImport.mousePressed(importGraph1);
+
+	buttonImport = createButton('Import Graph 2');
+	buttonImport.position(110, lineHeight * line++);
+	buttonImport.mousePressed(importGraph2);
+
 	inputTextArea = createElement('TextArea');
 	inputTextArea.id('inputTextArea');
 	inputTextArea.position(15, lineHeight * line++);
 	inputTextArea.size(200, 200);
-	document.getElementById('inputTextArea').innerText =
-		'[{"id":0,"name":"A","x":221,"y":761,"edges":[{"vertexBId":1,"weight":3},{"vertexBId":5,"weight":9},{"vertexBId":3,"weight":6}]},{"id":1,"name":"B","x":399,"y":651,"edges":[{"vertexBId":0,"weight":3},{"vertexBId":2,"weight":2},{"vertexBId":4,"weight":9},{"vertexBId":5,"weight":9},{"vertexBId":3,"weight":4}]},{"id":2,"name":"C","x":488,"y":465,"edges":[{"vertexBId":1,"weight":2},{"vertexBId":3,"weight":2},{"vertexBId":6,"weight":9},{"vertexBId":4,"weight":8}]},{"id":3,"name":"D","x":416,"y":304,"edges":[{"vertexBId":0,"weight":6},{"vertexBId":1,"weight":4},{"vertexBId":2,"weight":2},{"vertexBId":6,"weight":9}]},{"id":4,"name":"E","x":885,"y":620,"edges":[{"vertexBId":1,"weight":9},{"vertexBId":2,"weight":8},{"vertexBId":5,"weight":8},{"vertexBId":6,"weight":7},{"vertexBId":8,"weight":9},{"vertexBId":9,"weight":10}]},{"id":5,"name":"F","x":768,"y":1005,"edges":[{"vertexBId":0,"weight":9},{"vertexBId":1,"weight":9},{"vertexBId":4,"weight":8},{"vertexBId":9,"weight":18}]},{"id":6,"name":"G","x":881,"y":166,"edges":[{"vertexBId":2,"weight":9},{"vertexBId":3,"weight":9},{"vertexBId":4,"weight":7},{"vertexBId":7,"weight":4},{"vertexBId":8,"weight":5}]},{"id":7,"name":"H","x":1142,"y":108,"edges":[{"vertexBId":6,"weight":4},{"vertexBId":8,"weight":1},{"vertexBId":9,"weight":4}]},{"id":8,"name":"I","x":1263,"y":234,"edges":[{"vertexBId":4,"weight":9},{"vertexBId":6,"weight":5},{"vertexBId":7,"weight":1},{"vertexBId":9,"weight":3}]},{"id":9,"name":"J","x":1520,"y":243,"edges":[{"vertexBId":4,"weight":10},{"vertexBId":5,"weight":18},{"vertexBId":7,"weight":4},{"vertexBId":8,"weight":3}]}]';
+	document.getElementById('inputTextArea').innerText = '';
 }
 
 function draw() {
@@ -433,6 +442,18 @@ function showHideId() {
 
 function resetGraph() {
 	graph.reset();
+}
+
+function importGraph1() {
+	document.getElementById('inputTextArea').innerText =
+		'[{"id":0,"name":"A","x":221,"y":761,"edges":[{"vertexBId":1,"weight":3},{"vertexBId":5,"weight":9},{"vertexBId":3,"weight":6}]},{"id":1,"name":"B","x":399,"y":651,"edges":[{"vertexBId":0,"weight":3},{"vertexBId":2,"weight":2},{"vertexBId":4,"weight":9},{"vertexBId":5,"weight":9},{"vertexBId":3,"weight":4}]},{"id":2,"name":"C","x":488,"y":465,"edges":[{"vertexBId":1,"weight":2},{"vertexBId":3,"weight":2},{"vertexBId":6,"weight":9},{"vertexBId":4,"weight":8}]},{"id":3,"name":"D","x":416,"y":304,"edges":[{"vertexBId":0,"weight":6},{"vertexBId":1,"weight":4},{"vertexBId":2,"weight":2},{"vertexBId":6,"weight":9}]},{"id":4,"name":"E","x":885,"y":620,"edges":[{"vertexBId":1,"weight":9},{"vertexBId":2,"weight":8},{"vertexBId":5,"weight":8},{"vertexBId":6,"weight":7},{"vertexBId":8,"weight":9},{"vertexBId":9,"weight":10}]},{"id":5,"name":"F","x":768,"y":1005,"edges":[{"vertexBId":0,"weight":9},{"vertexBId":1,"weight":9},{"vertexBId":4,"weight":8},{"vertexBId":9,"weight":18}]},{"id":6,"name":"G","x":881,"y":166,"edges":[{"vertexBId":2,"weight":9},{"vertexBId":3,"weight":9},{"vertexBId":4,"weight":7},{"vertexBId":7,"weight":4},{"vertexBId":8,"weight":5}]},{"id":7,"name":"H","x":1142,"y":108,"edges":[{"vertexBId":6,"weight":4},{"vertexBId":8,"weight":1},{"vertexBId":9,"weight":4}]},{"id":8,"name":"I","x":1263,"y":234,"edges":[{"vertexBId":4,"weight":9},{"vertexBId":6,"weight":5},{"vertexBId":7,"weight":1},{"vertexBId":9,"weight":3}]},{"id":9,"name":"J","x":1520,"y":243,"edges":[{"vertexBId":4,"weight":10},{"vertexBId":5,"weight":18},{"vertexBId":7,"weight":4},{"vertexBId":8,"weight":3}]}]';
+	importGraph();
+}
+
+function importGraph2() {
+	document.getElementById('inputTextArea').innerText =
+		'[{"id":0,"name":"A","x":284,"y":758,"edges":[{"vertexBId":1,"weight":3},{"vertexBId":5,"weight":9},{"vertexBId":3,"weight":6}]},{"id":1,"name":"B","x":467,"y":685,"edges":[{"vertexBId":0,"weight":3},{"vertexBId":2,"weight":2},{"vertexBId":4,"weight":9},{"vertexBId":5,"weight":9},{"vertexBId":3,"weight":4}]},{"id":2,"name":"C","x":562,"y":444,"edges":[{"vertexBId":1,"weight":2},{"vertexBId":3,"weight":2},{"vertexBId":6,"weight":9},{"vertexBId":4,"weight":8},{"vertexBId":11,"weight":14}]},{"id":3,"name":"D","x":395,"y":258,"edges":[{"vertexBId":0,"weight":6},{"vertexBId":1,"weight":4},{"vertexBId":2,"weight":2},{"vertexBId":6,"weight":9}]},{"id":4,"name":"E","x":806,"y":654,"edges":[{"vertexBId":1,"weight":9},{"vertexBId":2,"weight":8},{"vertexBId":5,"weight":8},{"vertexBId":6,"weight":7},{"vertexBId":8,"weight":9},{"vertexBId":9,"weight":10},{"vertexBId":13,"weight":4}]},{"id":5,"name":"F","x":768,"y":1005,"edges":[{"vertexBId":0,"weight":9},{"vertexBId":1,"weight":9},{"vertexBId":4,"weight":8},{"vertexBId":9,"weight":18},{"vertexBId":12,"weight":9}]},{"id":6,"name":"G","x":701,"y":118,"edges":[{"vertexBId":2,"weight":9},{"vertexBId":3,"weight":9},{"vertexBId":4,"weight":7},{"vertexBId":7,"weight":4},{"vertexBId":8,"weight":5},{"vertexBId":11,"weight":12}]},{"id":7,"name":"H","x":1148,"y":78,"edges":[{"vertexBId":6,"weight":4},{"vertexBId":8,"weight":1},{"vertexBId":9,"weight":4},{"vertexBId":10,"weight":7}]},{"id":8,"name":"I","x":1239,"y":282,"edges":[{"vertexBId":4,"weight":9},{"vertexBId":6,"weight":5},{"vertexBId":7,"weight":1},{"vertexBId":9,"weight":3}]},{"id":9,"name":"J","x":1550,"y":332,"edges":[{"vertexBId":4,"weight":10},{"vertexBId":5,"weight":18},{"vertexBId":7,"weight":4},{"vertexBId":8,"weight":3},{"vertexBId":10,"weight":12},{"vertexBId":11,"weight":5}]},{"id":10,"name":"K","x":1473,"y":159,"edges":[{"vertexBId":7,"weight":7},{"vertexBId":9,"weight":12}]},{"id":11,"name":"L","x":1416,"y":617,"edges":[{"vertexBId":2,"weight":14},{"vertexBId":6,"weight":12},{"vertexBId":12,"weight":3},{"vertexBId":13,"weight":2},{"vertexBId":9,"weight":5}]},{"id":12,"name":"M","x":1409,"y":838,"edges":[{"vertexBId":5,"weight":9},{"vertexBId":11,"weight":3},{"vertexBId":13,"weight":11}]},{"id":13,"name":"N","x":1102,"y":833,"edges":[{"vertexBId":4,"weight":4},{"vertexBId":11,"weight":2},{"vertexBId":12,"weight":11}]}]';
+	importGraph();
 }
 
 function importGraph() {
